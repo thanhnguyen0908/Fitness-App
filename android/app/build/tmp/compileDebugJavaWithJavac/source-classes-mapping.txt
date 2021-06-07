@@ -1,0 +1,14 @@
+com/trial4/MainActivity.java
+ com.trial4.MainActivity
+com/trial4/ReactNativeFlipper.java
+ com.trial4.ReactNativeFlipper
+ com.trial4.ReactNativeFlipper$1
+ com.trial4.ReactNativeFlipper$2
+ com.trial4.ReactNativeFlipper$2$1
+com/trial4/BuildConfig.java
+ com.trial4.BuildConfig
+com/trial4/MainApplication.java
+ com.trial4.MainApplication
+ com.trial4.MainApplication$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
