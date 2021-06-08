@@ -16,7 +16,7 @@ const BottomNavigation = () => {
     activeBackgroundColor:'#4A7DFC', 
     activeTintColor:'white', 
     inactiveTintColor:'black',
-    style:{bottom:0}
+    style:{bottom: 0}
     }
 
   return(

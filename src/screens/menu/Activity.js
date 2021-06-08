@@ -56,6 +56,7 @@ export default function Activity(){
             onPressItem={name => {
               console.log(`Selected Button: ${name}`);
             }}
+
           />
     </View>
   )
