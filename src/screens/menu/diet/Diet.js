@@ -1,6 +1,6 @@
 import React from 'react';
 import {View,TextInput, ScrollView, Text, TouchableOpacity, Dimensions} from 'react-native'
-import { HeaderProp } from './HeaderProp';
+import { HeaderProp } from '../header/HeaderProp';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { FloatingAction } from "react-native-floating-action";
 

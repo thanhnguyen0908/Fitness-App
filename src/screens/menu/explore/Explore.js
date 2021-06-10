@@ -1,6 +1,6 @@
 import React from 'react';
 import {View,Text, ScrollView} from 'react-native'
-import { HeaderProp } from './HeaderProp';
+import { HeaderProp } from '../header/HeaderProp';
 
 export default function Explore() {
   return (

@@ -26,7 +26,7 @@ export default function RoutineScreen({navigation}){
           </View>
         </View>
       </ScrollView>
-      <TouchableOpacity style={{backgroundColor:'#4A7DFC', height: '8%', width:'90%', alignSelf:'center', justifyContent:'center', borderRadius: 5}}>
+      <TouchableOpacity style={{backgroundColor:'#4A7DFC', height: '8%', width:'90%', alignSelf:'center', justifyContent:'center', borderRadius: 5}} onPress={()=> navigation.navigate('Menu')}>
         <Text style={{textAlign:'center', fontFamily:'Poppins-Bold', color:'white', fontSize: 16}}>Start this plan now</Text>
       </TouchableOpacity>
     </View>

@@ -51,7 +51,45 @@ const styles = StyleSheet.create({
     fontFamily:'Lato-Bold', 
     fontSize: 18, 
     color:'white'
-  }
+  },
+  centeredView: {
+    flex:1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalView: {
+    backgroundColor: "white",
+    borderRadius: 5,
+    padding: 50,
+    justifyContent:'center',
+    shadowColor: "#000",
+    elevation: 5
+  },
+  button: {
+    marginTop: 10,
+    borderRadius: 5,
+    padding: 10,
+    elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    textAlign: "center"
+  },
+  modalInfo:{
+    borderBottomWidth: 1, 
+    borderBottomColor: '#4A7DFC', 
+    margin: 5
+  } 
 })
 
 export default styles

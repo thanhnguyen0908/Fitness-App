@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Activity from '../screens/menu/Activity'
-import Profile from '../screens/menu/Profile'
-import Diet from '../screens/menu/Diet'
-import Explore from '../screens/menu/Explore'
-import Stats from '../screens/menu/Stats'
+import Activity from '../screens/menu/activity/Activity'
+import Profile from '../screens/menu/profile/Profile'
+import Diet from '../screens/menu/diet/Diet'
+import Explore from '../screens/menu/explore/Explore'
+import Stats from '../screens/menu/stats/Stats'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
@@ -16,7 +16,7 @@ const BottomNavigation = () => {
     activeBackgroundColor:'#4A7DFC', 
     activeTintColor:'white', 
     inactiveTintColor:'black',
-    style:{bottom: 0}
+    style:{}
     }
 
   return(
