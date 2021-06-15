@@ -38,7 +38,7 @@ const onLoginPress = () => {
       }
       const user = documentSnapshot.data()
       //todo: dung asyncstorage de luu user
-      navigation.navigate('Physics', {user})
+      navigation.navigate('Menu', {user})
   })
   .catch(error => {
       console.log(error)

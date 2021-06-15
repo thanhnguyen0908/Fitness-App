@@ -52,7 +52,7 @@ function PhysicsScreen({navigation}) {
       }}
     >
       {actionTriggered === 'Height' ?
-      <ModalProps text='By centimeters' inputValue={height} onChangeTextHandler={(text)=>setHeight(text)} onPressHandler={() => {setModalVisible(!modalVisible); onValidate()}}/>:
+        <ModalProps text='By centimeters' inputValue={height} onChangeTextHandler={(text)=>setHeight(text)} onPressHandler={() => {setModalVisible(!modalVisible); onValidate()}}/>:
         actionTriggered === 'Weight' ?
         <ModalProps text='By kilograms' inputValue={weight} onChangeTextHandler={(text)=>setWeight(text)} onPressHandler={() => {setModalVisible(!modalVisible); onValidate()}}/>:
         actionTriggered === 'Consumption Amount' ?
