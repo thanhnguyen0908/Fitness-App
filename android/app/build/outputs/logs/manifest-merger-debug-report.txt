@@ -19,6 +19,7 @@ MERGED from [:react-native-image-picker] C:\Users\IBM\Trial4\node_modules\react-
 MERGED from [:react-native-safe-area-context] C:\Users\IBM\Trial4\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\IBM\Trial4\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] C:\Users\IBM\Trial4\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-video] C:\Users\IBM\Trial4\node_modules\react-native-video\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.64.1] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\cd1f1e395a63b30683caa8e2a29685d3\jetified-react-native-0.64.1\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:17:1-83:12
 MERGED from [androidx.browser:browser:1.0.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\cb12cead8292510d670c09fbbd50f655\browser-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -93,6 +94,7 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\IBM\.gra
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\8f6fc99f0b968c7750fe1136ad5ccc2f\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\d8897a0c7a6d411baabc6933517a8838\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\8a43e4cb08b9d5efaaff92255a9e853a\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.yqritc:android-scalablevideoview:1.0.4] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\0dc58c2e7e2c598b35a7d26eee4e09b7\jetified-android-scalablevideoview-1.0.4\AndroidManifest.xml:2:1-12:12
 MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\2eb33fc3decbc1dc20f1cf17b12b21ff\jetified-fbcore-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\70945aba1d55af553dcaab829ea844bd\jetified-ui-common-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\9cd4656b7fe37a796b3a4a34c7e0217f\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
@@ -265,6 +267,8 @@ MERGED from [:react-native-screens] C:\Users\IBM\Trial4\node_modules\react-nativ
 MERGED from [:react-native-screens] C:\Users\IBM\Trial4\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] C:\Users\IBM\Trial4\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] C:\Users\IBM\Trial4\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-video] C:\Users\IBM\Trial4\node_modules\react-native-video\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-video] C:\Users\IBM\Trial4\node_modules\react-native-video\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.64.1] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\cd1f1e395a63b30683caa8e2a29685d3\jetified-react-native-0.64.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.64.1] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\cd1f1e395a63b30683caa8e2a29685d3\jetified-react-native-0.64.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\ba7ac2cbd19833a342f190b04e872d60\jetified-firebase-auth-21.0.1\AndroidManifest.xml:21:5-44
@@ -413,6 +417,8 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\IBM\.gradle\cach
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\d8897a0c7a6d411baabc6933517a8838\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\8a43e4cb08b9d5efaaff92255a9e853a\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\8a43e4cb08b9d5efaaff92255a9e853a\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.yqritc:android-scalablevideoview:1.0.4] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\0dc58c2e7e2c598b35a7d26eee4e09b7\jetified-android-scalablevideoview-1.0.4\AndroidManifest.xml:8:5-10:41
+MERGED from [com.yqritc:android-scalablevideoview:1.0.4] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\0dc58c2e7e2c598b35a7d26eee4e09b7\jetified-android-scalablevideoview-1.0.4\AndroidManifest.xml:8:5-10:41
 MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\2eb33fc3decbc1dc20f1cf17b12b21ff\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:2.2.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\2eb33fc3decbc1dc20f1cf17b12b21ff\jetified-fbcore-2.2.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:ui-common:2.2.0] C:\Users\IBM\.gradle\caches\transforms-2\files-2.1\70945aba1d55af553dcaab829ea844bd\jetified-ui-common-2.2.0\AndroidManifest.xml:5:5-7:41

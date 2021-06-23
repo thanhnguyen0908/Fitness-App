@@ -9,6 +9,9 @@ import RoutineScreen from '../screens/routine/RoutineScreen';
 import auth from '@react-native-firebase/auth';
 import BottomNavigation from "./BottomNavigation";
 import EditProfile from "../screens/menu/profile/EditProfile";
+import ForgotPasswordScreen from "../screens/forgotpassword/ForgotPasswordScreen";
+import DetailScreen from "../screens/menu/activity/DetailScreen";
+import TimerScreen from "../screens/menu/activity/TimerScreen";
 
 const Stack = createStackNavigator();
 
@@ -36,21 +39,21 @@ export default function Navigation() {
       <Stack.Navigator initialRouteName = 'Splash' headerMode = 'none'>
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Signin" component={SigninScreen} />
+        <Stack.Screen name="Forgot" component={ForgotPasswordScreen} />
         <Stack.Screen name="Signup" component={SignupScreen} />
-        <Stack.Screen name="Physics" component={PhysicsScreen}/>
-        <Stack.Screen name="Suggestion" component={SuggestionScreen}/>
-        <Stack.Screen name="Routine" component={RoutineScreen}/>
       </Stack.Navigator>
     );
   }
 
   return (
       <Stack.Navigator headerMode = 'none'>
-        {/* <Stack.Screen name="Physics" component={PhysicsScreen}/>
+        <Stack.Screen name="Physics" component={PhysicsScreen}/>
         <Stack.Screen name="Suggestion" component={SuggestionScreen}/>
-        <Stack.Screen name="Routine" component={RoutineScreen}/> */}
+        <Stack.Screen name="Routine" component={RoutineScreen}/>
         <Stack.Screen name="Menu" component={BottomNavigation} />
         <Stack.Screen name="Edit" component={EditProfile} />
+        <Stack.Screen name="Detail" component={DetailScreen} />
+        <Stack.Screen name="Timer" component={TimerScreen} />
       </Stack.Navigator>
   );
 } 
@@ -64,7 +67,10 @@ export default function Navigation() {
 //       <Stack.Screen name="Physics" component={PhysicsScreen}/>
 //       <Stack.Screen name="Suggestion" component={SuggestionScreen}/>
 //       <Stack.Screen name="Routine" component={RoutineScreen}/>
-//          <Stack.Screen name="Menu" component={BottomNavigation}/> 
+//       <Stack.Screen name="Menu" component={BottomNavigation}/> 
+//       <Stack.Screen name="Edit" component={EditProfile} />
+//       <Stack.Screen name="Detail" component={DetailScreen} />
+//       <Stack.Screen name="Timer" component={TimerScreen} />
 //     </Stack.Navigator>
 //    )
 // }

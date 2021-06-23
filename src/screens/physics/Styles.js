@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: '80%',
     height: '30%',
-    marginTop: 50,
+    marginTop: 20,
     elevation: 3,
     alignSelf:'center',
   },
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   validatebutton:{
     width: '90%', 
-    backgroundColor:'#4A7DFC', 
+    backgroundColor:'#668FF4', 
     height:'50%', 
     alignItems:'center', 
     justifyContent:'center', 

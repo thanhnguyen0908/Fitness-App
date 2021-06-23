@@ -10,7 +10,7 @@ export default function Stats() {
       <ScrollView style={{flex:1, backgroundColor:'white'}}>
         <View style={{ flex: 1, margin: 15}}>
             <View style={{flex:1}}>
-            <Text style={{fontWeight:'bold', fontSize: 25, marginBottom: 10}}>Recent Progress</Text>
+            <Text style={{fontWeight:'bold', fontSize: 23, marginBottom: 10}}>Recent Progress</Text>
             <View style={{flex: 1, justifyContent:'center', alignItems:'center', borderRadius: 10, backgroundColor:'#4A7DFC'}}>
               <Text style={{color:'white', fontSize: 50, fontFamily:'Poppins-Bold', marginTop: 20}}>0%</Text>
               <Text style={{fontFamily:'Poppins-Regular', color:'white', opacity: 0.6, textAlign: 'center'}}>Oops ! Looks like you haven't completed any activity yet.</Text>
@@ -32,11 +32,11 @@ export default function Stats() {
             </View>
             </View>
             <View style={{flex:1, marginTop: 10}}>
-              <Text style={{fontWeight:'bold', fontSize: 25, marginBottom: 10}}>Goal Compliance</Text>
+              <Text style={{fontWeight:'bold', fontSize: 23, marginBottom: 10}}>Goal Compliance</Text>
               <Text>None</Text>
             </View>
             <View style={{flex:1 }}>
-              <Text style={{fontWeight:'bold', fontSize: 25, marginBottom: 10}}>Total Time</Text>
+              <Text style={{fontWeight:'bold', fontSize: 23, marginBottom: 10}}>Total Time</Text>
               <View style={{flexDirection:'row', justifyContent:'space-evenly', margin: 20}}>
                 <TouchableOpacity style={{backgroundColor:'white', padding: 20, borderRadius: 10, elevation: 3, width:'40%', alignItems:'center', justifyContent:'center'}}>
                   <MaterialCommunityIcons name = 'lightning-bolt' size={35} />

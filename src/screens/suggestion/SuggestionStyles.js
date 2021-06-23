@@ -16,7 +16,8 @@ imagecontainer: {
 },
 bigcontainer:{
   flex:1,
-  alignItems:'center' 
+  alignItems:'center',
+  backgroundColor:'white'
 },
 welcome:{
   fontFamily:'Poppins-Bold', 

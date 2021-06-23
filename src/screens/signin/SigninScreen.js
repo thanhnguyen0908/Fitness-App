@@ -69,7 +69,7 @@ return (
     listenerChangeText={(text) => setPassword(text)} 
     inputValue={password}
     />
-    <TouchableOpacity style = {styles.alignforgot}>
+    <TouchableOpacity style = {styles.alignforgot} onPress={()=>navigation.navigate('Forgot')}>
           <Icon name="lock" size={20} color="#668FF4" />
           <Text style={styles.forgotpassword} >Forgot Password ?</Text>
     </TouchableOpacity>

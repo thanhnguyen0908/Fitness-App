@@ -6,6 +6,7 @@ import styles from './Styles';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import { ModalProps } from './ModalProps';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 function PhysicsScreen({navigation}) {
   const [actionTriggered, setActionTriggered] = useState(''); // Here we go
@@ -80,6 +81,10 @@ function PhysicsScreen({navigation}) {
     <View style ={styles.validatecontainer}>
       <TouchableOpacity style= {styles.validatebutton} onPress={()=> navigation.navigate('Suggestion')}>
         <Text style={styles.validatetext}>Validate</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={{flexDirection:'row', justifyContent:'center', alignItems:'center'}} onPress={()=>navigation.navigate('Menu')}>
+        <Text style={{fontFamily:'Poppins-Regular', fontSize: 16, color:'gray'}}>Skip</Text>
+        <MaterialCommunityIcons name='arrow-right' size={30} style={{color:'gray'}}/>
       </TouchableOpacity>
     </View>
     </View>

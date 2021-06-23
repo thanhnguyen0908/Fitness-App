@@ -1,46 +1,52 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Image, TextInput,Text, TouchableOpacity, FlatList} from 'react-native';
 import {kneeing} from '../../assets/image';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from './SuggestionStyles'
-
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Item",
-  },
-  {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "Second Item",
-  },
-  {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "Third Item",
-  },
-];
-
-const Item = ({ item, onPress, backgroundColor, textColor }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-    <Text style={[styles.title, textColor]}>{item.title}</Text>
-  </TouchableOpacity>
-);
+import firestore from '@react-native-firebase/firestore'
 
 export default function SuggestionScreen({navigation}){
-  const [selectedId, setSelectedId] = useState(null);
 
-  const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "#419DFC" : "white";
-    const color = item.id === selectedId ? 'white' : 'black';
+  const [displaySuggest, setDisplaySuggest] = useState('')
+  const [result, setResult] = useState('')
 
-    return (
-      <Item
-        item={item}
-        onPress={() => {setSelectedId(item.id); navigation.navigate('Routine')}}
-        backgroundColor={{ backgroundColor }}
-        textColor={{ color }}
-      />
-    );
-  };
+  // const subscriber = firestore()
+  // .collection('suggestion')
+  // .onSnapshot(querySnapshot => {
+  //   const displaySuggest = [];
+
+  //   querySnapshot.forEach(documentSnapshot => {
+  //     displaySuggest.push({
+  //       ...documentSnapshot.data(),
+  //       key: documentSnapshot.id,
+  //     });
+  //   });
+    
+  //   setDisplaySuggest(displaySuggest);
+  // });
+
+  // useEffect(() => {
+  //   return () => subscriber();
+  // }, [])
+
+  const onSearch =() =>{
+    firestore()
+    .collection('suggestion').where('goal', '==', result)
+    .onSnapshot(querySnapshot => {
+      const displaySuggest = [];
+
+      querySnapshot.forEach(documentSnapshot => {
+        displaySuggest.push({
+          ...documentSnapshot.data(),
+          key: documentSnapshot.id,
+        });
+      });
+      setDisplaySuggest(displaySuggest);
+    });
+  }
+  useEffect(() => {
+    onSearch();
+  }, [])
 
   return(
     <View style = {styles.bigcontainer}>
@@ -49,18 +55,27 @@ export default function SuggestionScreen({navigation}){
       </View>
       <Text style={styles.welcome}>Suggested Workouts</Text>
       <Text style={styles.underwelcome}>Provided by professional trainers.</Text>
-      <View style={{flexDirection:'row', width: '80%', borderBottomColor:'#417DFC', borderBottomWidth: 1}}>
-      <Icon name="search" size={20} color="black" style={{marginTop: 13}}/>
-      <TextInput style={{width: '93%'}}
-      placeholder='Search..'/>
+      <View style={{flexDirection:'row', width: '80%', borderColor:'#668FF4', borderWidth: 1, borderRadius: 10, margin: 10}}>
+        <TouchableOpacity style={{borderRightWidth: 1, width:'18%', alignItems:'center', justifyContent:'center', borderColor:'#668FF4', backgroundColor:'#668FF4', borderRadius: 8}}>
+        <Icon name="search" size={20} color="white" onPress={()=>onSearch()}/>
+        </TouchableOpacity>
+        <TextInput style={{width: '90%'}}
+        placeholder='Search..'
+        value={result}
+        onChangeText={(text) => setResult(text)}/>
       </View>
-      <View style={{flex:1, width: '80%', marginTop: 10}}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        extraData={selectedId}
-      />
+      <View style={{flex: 1, width:'80%', margin: 15}}>
+        <FlatList 
+          data={displaySuggest}
+          renderItem={({ item }) => (
+            <View style={{backgroundColor:'white', marginBottom: 10, borderRadius: 10, elevation: 5}}>
+              <TouchableOpacity style={{flex: 1, padding: 10}} onPress={()=>navigation.navigate('Routine', item)}>
+                <Text style={{fontFamily:'Poppins-Bold', color:'black', fontSize: 20}}>{item.title}</Text>
+                <Text style={{fontSize: 14}}>{item.description}</Text>
+              </TouchableOpacity>
+            </View> 
+          )}
+          keyExtractor={(_, index) => index.toString()}/>
       </View>
     </View>
   );
