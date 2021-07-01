@@ -11,6 +11,8 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+// @react-native-async-storage/async-storage
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
 // @react-native-firebase/app
@@ -25,8 +27,6 @@ import io.invertase.firebase.storage.ReactNativeFirebaseStoragePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-image-crop-picker
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
-// react-native-image-picker
-import com.imagepicker.ImagePickerPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-safe-area-context
@@ -82,6 +82,7 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
+      new AsyncStoragePackage(),
       new RNCMaskedViewPackage(),
       new ReactNativeFirebaseAppPackage(),
       new ReactNativeFirebaseAuthPackage(),
@@ -89,7 +90,6 @@ public class PackageList {
       new ReactNativeFirebaseStoragePackage(),
       new RNGestureHandlerPackage(),
       new PickerPackage(),
-      new ImagePickerPackage(),
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),

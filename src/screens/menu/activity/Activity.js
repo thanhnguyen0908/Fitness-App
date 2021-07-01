@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {View, Text, ScrollView, ImageBackground, FlatList, TouchableOpacity, Alert, Modal, TextInput, Dimensions} from 'react-native'
+import {View, Text, ScrollView, ImageBackground, FlatList, TouchableOpacity, Alert, Modal, TextInput, Dimensions, ActivityIndicator} from 'react-native'
 import {Calendar} from 'react-native-calendars'
 import Icon from 'react-native-vector-icons/Fontisto'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -8,35 +8,68 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import styles from './ActivityStyles'
 import moment from 'moment'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 //todo: tu async storage goi user ra
 
 export default function Activity({navigation}){
   const [modalVisible, setModalVisible] = useState(false);
   const [image,setImage] = useState('https://firebasestorage.googleapis.com/v0/b/trial4-f8e32.appspot.com/o/extra.webp?alt=media&token=c4926e7e-4b78-4bea-bbfd-f88b767f160a')
-
   const [displayName, setDisplayName] = useState([]);
   const [displayEx, setDisplayEx] = useState('')
-  const [title, setTitle] = useState('')
-  const [explain, setExplain] = useState('')
-  const [intro, setIntro] = useState('')
-  const [timer, setTimer] = useState('')
-  const timestamp = firestore.FieldValue.serverTimestamp();
-  
+  const [textbox, setTextBox] = useState('')
+  const [longdescript, setLongDescript] = useState('')
+  const [rep, setRep] = useState('')
+  const [loading, setLoading] = useState(true)
+  const [someid, setSomeID] = useState('')
+  const [loadingData, setLoadingData] = useState(false);
+
+  const startLoadingData = () => {
+    setLoadingData(true);
+  };
+
   const userUID = auth().currentUser.uid
 
   const getData = async () => {
     const snapshot = await firestore().collection('users').doc(userUID).get()
     setDisplayName(snapshot.data());
+      try {
+        AsyncStorage.getItem('Ex')
+            .then(value => {
+                if (value != null) {
+                    let passdata = JSON.parse(value);
+                    setSomeID(passdata.ID);
+                }
+            })
+    } catch (error) {
+        console.log(error);
+    }
+    console.log('Get ID', someid)
   };
 
+  const getEx = () => {
+    const subscriber = firestore()
+    .collection('suggestion').where('id', '==', someid)
+    .onSnapshot(querySnapshot => {
+      const displayEx = [];
+      querySnapshot.forEach(documentSnapshot => {
+        displayEx.push({
+          ...documentSnapshot.data(),
+          key: documentSnapshot.id,
+        });
+      });
+      setDisplayEx(displayEx);
+      setLoadingData(false)
+    });
+    return () => subscriber();
+  }
+
   const onAdd = () => {
-    firestore().collection('activity').doc().set({
-      title,
-      explain,
-      intro,
-      timer,
-      createdAt: timestamp
+    firestore().collection('suggestion').doc().set({
+      textbox,
+      longdescript,
+      rep,
+      id: someid
     })
     Alert.alert('Woohoo !', 'Extras Added')
   }
@@ -47,23 +80,11 @@ export default function Activity({navigation}){
 	};
 
   useEffect(() => {
-    getData()
-    const subscriber = firestore()
-    .collection('activity').orderBy('createdAt')
-    .onSnapshot(querySnapshot => {
-      const displayEx = [];
-
-      querySnapshot.forEach(documentSnapshot => {
-        displayEx.push({
-          ...documentSnapshot.data(),
-          key: documentSnapshot.id,
-        });
-      });
-
-      setDisplayEx(displayEx);
-    });
-    return () => subscriber();
-  }, [])
+    startLoadingData();
+    getData();
+    getEx();
+    navigation.addListener("focus", () => setLoading(!loading));
+  }, [navigation, loading]) 
 
   return (
     <View style={styles.container}>
@@ -89,7 +110,14 @@ export default function Activity({navigation}){
             <Text style={{marginTop: 10}}>Every workout makes you better.</Text>
             <Icon name="quote-a-left" size={20} style={styles.quoteleft}/>
           </View>
+          <TouchableOpacity style={{padding: 10, margin: 10, elevation: 5, backgroundColor:'#668FF4', width:'20%', borderRadius: 5}} onPress={()=>startLoadingData()}>
+            <Text style={{fontSize: 16, color: 'white', textAlign:'center'}}>Show</Text>
+          </TouchableOpacity>
           <View style={{flex: 1}}>
+          {loadingData ? (
+              <Text style={{margin: 10}}>Loading...</Text>
+            ) : (
+              <>
             <FlatList 
             horizontal={true}
             data={displayEx}
@@ -97,16 +125,18 @@ export default function Activity({navigation}){
               <TouchableOpacity style={{margin: 10, flex: 1, width: Dimensions.get('screen').width * 0.9}} onPress={()=>navigation.navigate('Detail', item)}>
                 <ImageBackground style={{flex: 1, flexDirection:'column', justifyContent:'space-between'}} source={{uri: item.imageURL ? item.imageURL : image}}>
                   <View style={{backgroundColor: 'white', borderRadius: 5, width:'40%', margin: 10, height:'20%', alignItems:'center', justifyContent:'center'}}>
-                    <Text style={{fontWeight:'bold', fontSize: 16}}>{item.title}</Text>
+                    <Text style={{fontWeight:'bold', fontSize: 16}}>{item.textbox}</Text>
                   </View>
                   <View style={{margin: 10}}>
-                    <Text style={{fontSize: 20, color:'white'}}>{item.subtitle}</Text>
-                    <Text style={{fontSize: 20, color:'white'}}>{item.description}</Text>
+                    <Text style={{fontSize: 20, color:'white'}}>{item.subtext}</Text>
+                    <Text style={{fontSize: 20, color:'white'}}>{item.shortdescript}</Text>
                   </View>
                 </ImageBackground>
               </TouchableOpacity> 
             )}
             keyExtractor={(_, index) => index.toString()}/>
+              </>
+            )}
           </View>
         </View>
       </ScrollView>
@@ -122,13 +152,11 @@ export default function Activity({navigation}){
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={{marginTop: 10}}>Title:</Text>
-            <TextInput style={{borderBottomWidth: 1, width:'80%'}} value={title} onChangeText={(text)=>setTitle(text)}/>
+            <TextInput style={{borderBottomWidth: 1, width:'80%'}} value={textbox} onChangeText={(text)=>setTextBox(text)}/>
             <Text style={{marginTop: 10}}>Exercises:</Text>
-            <TextInput style={{borderBottomWidth: 1, width:'80%'}} value={explain} onChangeText={(text)=>setExplain(text)}/>
+            <TextInput style={{borderBottomWidth: 1, width:'80%'}} value={longdescript} onChangeText={(text)=>setLongDescript(text)}/>
             <Text style={{marginTop: 10}}>Reps:</Text>
-            <TextInput style={{borderBottomWidth: 1, width:'80%'}} value={intro} onChangeText={(text)=>setIntro(text)}/>
-            <Text style={{marginTop: 10}}>Estimated Time:</Text>
-            <TextInput style={{borderBottomWidth: 1, width:'80%'}} value={timer} onChangeText={(text)=>setTimer(text)}/>
+            <TextInput style={{borderBottomWidth: 1, width:'80%'}} value={rep} onChangeText={(text)=>setRep(text)}/>
             <TouchableOpacity
               style={[styles.button, styles.buttonClose]}
               onPress={() => {setModalVisible(!modalVisible), onAdd()}}>

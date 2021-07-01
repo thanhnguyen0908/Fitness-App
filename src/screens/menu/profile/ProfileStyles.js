@@ -27,8 +27,6 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   avatarname:{
-    borderBottomWidth: 1, 
-    borderBottomColor:'white', 
     marginTop: 50, 
     marginBottom: 50, 
     marginLeft: 10
@@ -36,7 +34,9 @@ const styles = StyleSheet.create({
   avatarnametext:{
     color:'white',
     fontSize: 30, 
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    borderBottomWidth: 1, 
+    borderBottomColor:'white', 
   },
   physcontainer:{
     margin: 20, 

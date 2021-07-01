@@ -28,13 +28,19 @@ export default function EditProfile({navigation}){
     .doc(userUID)
     .update({
     weight,
-    fullName,
     height,
+    phoneNum,
     gender,
-    phoneNum
+    fullName
     })
+    if ( weight === '' || height === '' || gender === '' || fullName ==='' || phoneNum ==='' ) {
+      alert('Please fill in all your informations')
+      }
+      else { 
+        navigation.navigate('Menu', {screen: 'Profile'}) 
+      }
   }
-
+  
   const [image,setImage] = useState('https://i1.wp.com/lucloi.vn/wp-content/uploads/2020/08/b73-1.jpg?fit=800%2C462&ssl=1')
 
   const takePhotoFromCamera = () => {
@@ -91,7 +97,7 @@ export default function EditProfile({navigation}){
                       ? displayInfo.img
                       : image}} style={{flex: 1, borderRadius:10}} />
       </View>
-      <View style={{flexDirection: 'row', flex: 1}}>
+      <View style={{flexDirection: 'row', flex: 1, margin: 10}}>
         <TouchableOpacity style={{backgroundColor:'white', padding: 10, borderRadius: 5}} onPress={()=>takePhotoFromCamera()}>
           <Text>Take Photo</Text>
         </TouchableOpacity>
@@ -125,7 +131,7 @@ export default function EditProfile({navigation}){
         <TextInput style={{flex:1}} value={phoneNum} onChangeText={(text)=>setPhoneNum(text)} keyboardType='numeric'/>
       </View>
     </View>
-      <TouchableOpacity style={{backgroundColor:'#4A7DFC', padding: 10, marginBottom: 30, borderRadius: 5, width:'50%', alignSelf:'center', alignItems:'center'}} onPress={()=> {onDone(), navigation.navigate('Menu')}}>
+      <TouchableOpacity style={{backgroundColor:'#4A7DFC', padding: 10, marginBottom: 30, borderRadius: 5, width:'50%', alignSelf:'center', alignItems:'center'}} onPress={()=> onDone()}>
         <Text style={{color:'white'}}>Done</Text>
       </TouchableOpacity>
   </View>

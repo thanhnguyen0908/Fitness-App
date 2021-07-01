@@ -60,17 +60,6 @@
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-        <provider
-            android:name="com.imagepicker.ImagePickerProvider"
-            android:authorities="com.trial4.imagepickerprovider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/imagepicker_provider_paths" />
-        </provider>
-
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"
             android:excludeFromRecents="true"
